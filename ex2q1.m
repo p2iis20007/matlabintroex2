@@ -11,7 +11,7 @@ rMat = [7 -5 0; -5 19 -4; 0 -4 6];
 vMat = [-25; 25; 50];
 
 % compute I vector
-iMat = inv(rMat) * vMat;
+iMat = rMat \ vMat;
 
 % display output
 fprintf("I1: %f\n",iMat(1));
