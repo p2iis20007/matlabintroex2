@@ -11,25 +11,40 @@ clear;
 X = [4 2 6 3];
 Y = [6 2 7 1];
 
-% read configurations
-config = readtable("ex2q8.csv");
-
 % compute A
-A = X(config.i) * Y(config.j);
+A = zeros(length(X), length(Y));
+for i = 1:length(X)
+    for j = 1:length(Y)
+        A(i,j) = X(i) * Y(j);
+    end
+end
 disp("A(i,j): ");
 disp(A);
 
 % compute B
-B = X(config.i) / Y(config.j);
+B = zeros (length(X), length(Y));
+for i = 1:length(X)
+    for j = 1:length(Y)
+        B(i,j) = X(i) / Y(j);
+    end
+end
 disp("B(i,j): ");
 disp(B);
 
 % compute C
-C = X(config.i) * Y(config.i);
+C = zeros(1,length(Y));
+for i = 1:length(X)
+    C(i) = X(i) * Y(i);
+end
 disp("C(i): ");
 disp(C);
 
 % compute D
-D = X(config.i) / (2 + X(config.i) + Y(config.j));
+D = zeros(length(X),length(Y));
+for i = 1:length(X)
+    for j = 1:length(Y)
+        D(i,j) = X(i) / (2 + X(i) + Y(j));
+    end
+end
 disp("D(i,j): ");
 disp(D);
